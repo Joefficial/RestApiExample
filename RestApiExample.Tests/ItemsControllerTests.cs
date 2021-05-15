@@ -56,7 +56,7 @@ namespace RestApiExample.Tests
             //Assert
             var itemResult = (result.Result as OkObjectResult).Value as ItemDto;
             itemResult.Should().NotBeNull();
-            itemResult.Should().BeEquivalentTo(expectedItem, options => options.ComparingByMembers<Item>());
+            itemResult.Should().BeEquivalentTo(expectedItem);
 
         }
 
@@ -80,7 +80,7 @@ namespace RestApiExample.Tests
             //Assert
             //var itemResult = (result.Result as OkObjectResult).Value as ItemDto[];
             result.Should().NotBeNull();
-            result.Should().BeEquivalentTo(expectedItems, options => options.ComparingByMembers<Item>());
+            result.Should().BeEquivalentTo(expectedItems);
 
         }
 
