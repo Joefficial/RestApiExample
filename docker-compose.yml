@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  restapiexample:
+    image: ${DOCKER_REGISTRY-}restapiexample
+    build:
+      context: .
+      dockerfile: RestApiExample/Dockerfile
