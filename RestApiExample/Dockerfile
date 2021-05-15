@@ -8,11 +8,11 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["RestApiExample/RestApiExample.csproj", "./"]
-RUN dotnet restore "RestApiExample/RestApiExample.csproj"
+RUN dotnet restore "RestApiExample.csproj"
 COPY . .
-RUN dotnet publish "RestApiExample/RestApiExample.csproj" -c Release -o /app/publish
+RUN dotnet publish "RestApiExample.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-ENTRYPOINT ["dotnet", "RestApiExample/RestApiExample.dll"]
+ENTRYPOINT ["dotnet", "RestApiExample.dll"]
