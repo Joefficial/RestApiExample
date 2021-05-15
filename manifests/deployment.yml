@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: joefficialrestapiexample 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: joefficialrestapiexample
+  template:
+    metadata:
+      labels:
+        app: joefficialrestapiexample 
+    spec:
+      containers:
+        - name: joefficialrestapiexample 
+          image: joefficialtest.azurecr.io/joefficialrestapiexample
+          ports:
+          - containerPort: 80
