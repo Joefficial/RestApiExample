@@ -6,10 +6,10 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
-WORKDIR /src/RestApiExample
-COPY ["RestApiExample.csproj", "./"]
-RUN dotnet restore "RestApiExample.csproj"
+WORKDIR /src
 COPY . .
+RUN dotnet restore "RestApiExample/RestApiExample.csproj"
+WORKDIR /src/RestApiExample
 RUN dotnet publish "RestApiExample.csproj" -c Release -o /app/publish
 
 FROM base AS final
